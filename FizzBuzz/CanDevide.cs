@@ -4,12 +4,12 @@
     {
         public static bool By3(int number)
         {
-            return number > 2 && number % 3 == 0;
+            return number > 0 && number % 3 == 0;
         }
 
         public static bool By5(int number)
         {
-            return number > 4 && number % 5 == 0;
+            return number > 0 && number % 5 == 0;
         }
     }
 }

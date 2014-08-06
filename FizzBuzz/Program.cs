@@ -6,24 +6,34 @@ namespace FizzBuzz
     {
         static void Main()
         {
-            Console.Write("Enter number to check: ");
-            var value = Console.ReadLine();
-
-            if (IsValidNumber(value) && value != null)
+            try
             {
-                var number = int.Parse(value);
+                Console.Write("Enter number to check: ");
+                var value = Console.ReadLine();
 
-                for (var i = 0; i <= number; i++)
+                if (IsValidNumber(value) && value != null)
                 {
-                    Console.WriteLine(WriteFizzOrBuzz.GetMessageToWrite(i));
+                    var number = int.Parse(value);
+
+                    for (var i = 0; i <= number; i++)
+                    {
+                        Console.WriteLine(WriteFizzOrBuzz.GetMessageToWrite(i));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid number was entered");
                 }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("Invalid number was entered");
+                Console.WriteLine("An Error has occured: " + e.Message);
             }
-            Console.WriteLine("Press any key to close...");
-            Console.ReadKey();
+            finally
+            {
+                Console.WriteLine("Press any key to close...");
+                Console.ReadKey();
+            }
         }
 
         private static bool IsValidNumber(string enteredNumber)
